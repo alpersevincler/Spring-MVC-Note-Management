@@ -1,0 +1,16 @@
+.imgRadius {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+
+}
+
+.tableText {
+    text-align: center;
+    font-family: Calibri;
+    background-color: cornflowerblue;
+
+}
+
+

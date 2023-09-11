@@ -1,0 +1,49 @@
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+
+
+<nav style="background-color: #6bbb60;text-align: center" class="navbar navbar-expand-lg  ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">NOTE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/note' ? 'active':''}"
+                       href="/note">Note <span class="sr-only">(home)</span></a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/register' ? 'active':''}"
+                       href="/register">Register</a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        LOGOUT
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${user != null}" class="nav-link disabled" th:text="${user.name + ' '+ user.surname}">Disabled</a>
+                </li>
+            </ul>
+            <form method="get" action="/search" class="d-flex">
+                <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        </div>
+    </div>
+</nav>
